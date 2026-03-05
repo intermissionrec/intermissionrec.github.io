@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <script>
-    // Redirect all 404s to index.html
-    window.location.replace("/?redirect=" + window.location.pathname);
-  </script>
+<meta charset="utf-8">
+<script>
+var path = window.location.pathname;
+window.location.replace("/#" + path);
+</script>
 </head>
 <body></body>
 </html>
