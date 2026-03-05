@@ -4,13 +4,20 @@
 	<meta charset="utf-8">
 	
 	<script>
-		(function() {
-		  var params = new URLSearchParams(window.location.search);
-		  var p = params.get("p");
+		(function () {
+			  var redirect = sessionStorage.redirect;
+			  delete sessionStorage.redirect;
 
-		  if (p) {
-		    window.history.replaceState(null, null, p);
-		  }
+			  if (redirect && redirect !== location.href) {
+	    history.replaceState(null, null, redirect);
+			  }
+
+			  var params = new URLSearchParams(location.search);
+			  var p = params.get("p");
+
+			  if (p) {
+			    history.replaceState(null, null, p);
+			  }
 		})();
 	</script>
 	<!-- Start of headStart -->
@@ -152,4 +159,5 @@
     <!-- End of bodyEnd -->
 </body>
 </html>
+
 
