@@ -3,18 +3,10 @@
 <head>
 <meta charset="utf-8">
 <script>
-var segmentCount = 1;
-var location = window.location;
-var redirect =
-  location.protocol + '//' + location.hostname +
-  (location.port ? ':' + location.port : '') +
-  location.pathname.split('/').slice(0, 1 + segmentCount).join('/') +
-  '/?p=/' +
-  location.pathname.slice(1) +
-  (location.search ? '&' + location.search.slice(1) : '') +
-  location.hash;
-
-location.replace(redirect);
+var l = window.location;
+var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+'/?p=' + l.pathname + l.search + l.hash;
+l.replace(redirect);
 </script>
 </head>
 <body></body>
