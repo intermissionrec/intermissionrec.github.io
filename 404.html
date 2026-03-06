@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <script>
-var l = window.location;
-var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-'/?p=' + l.pathname + l.search + l.hash;
-l.replace(redirect);
+sessionStorage.redirect = location.href;
+location.replace("/");
 </script>
 </head>
 <body></body>
