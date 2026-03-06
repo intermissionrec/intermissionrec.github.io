@@ -4,20 +4,14 @@
 	<meta charset="utf-8">
 	
 	<script>
-		(function () {
-			  var redirect = sessionStorage.redirect;
-			  delete sessionStorage.redirect;
+		(function() {
+		  var redirect = sessionStorage.redirect;
+		  delete sessionStorage.redirect;
 
-			  if (redirect && redirect !== location.href) {
-	    history.replaceState(null, null, redirect);
-			  }
-
-			  var params = new URLSearchParams(location.search);
-			  var p = params.get("p");
-
-			  if (p) {
-			    history.replaceState(null, null, p);
-			  }
+		  if (redirect && redirect !== location.href) {
+		    var path = redirect.replace(location.origin, "");
+		    history.replaceState(null, null, path);
+		  }
 		})();
 	</script>
 	<!-- Start of headStart -->
@@ -159,5 +153,6 @@
     <!-- End of bodyEnd -->
 </body>
 </html>
+
 
 
